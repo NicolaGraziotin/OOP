@@ -10,5 +10,7 @@ class HelloWorld {
          * Stampa "Hello World!" in standard output
          */
         System.out.println("Hello, world!");
+
+        System.out.println("Ciao a tutti! " + (50 + 50 * 50));
     }
 }
