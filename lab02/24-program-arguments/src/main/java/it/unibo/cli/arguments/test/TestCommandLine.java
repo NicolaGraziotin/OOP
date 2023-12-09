@@ -22,5 +22,8 @@ class TestCommandLine {
          *  * the, 3 characters long
          *  * lab, 3 characters long
          */
+        for (var string : args) {
+            System.out.println(string + ", " + string.length() + " characters long");
+        }
     }
 }
