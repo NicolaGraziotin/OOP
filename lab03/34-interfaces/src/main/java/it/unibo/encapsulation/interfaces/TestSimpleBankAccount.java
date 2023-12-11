@@ -25,5 +25,23 @@ public class TestSimpleBankAccount {
         // 6) Provare a prelevare fornendo un id utente sbagliato
 
         // 7) Controllare nuovamente l'ammontare
+
+        AccountHolder andrea = new AccountHolder("Andrea", "Rossi", 1);
+
+        AccountHolder alex = new AccountHolder("Alex", "Bianchi", 2);
+
+        SimpleBankAccount account1 = new SimpleBankAccount(andrea.getUserID(), 0);
+        SimpleBankAccount account2 = new SimpleBankAccount(alex.getUserID(), 0);
+
+        account1.deposit(andrea.getUserID(), 100);
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
+        account1.withdraw(andrea.getUserID(), 10);
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
+        account2.deposit(alex.getUserID(), 20);
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
+        account2.withdraw(alex.getUserID(), 10);
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
+        account2.deposit(andrea.getUserID(), 1000);
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
     }
 }

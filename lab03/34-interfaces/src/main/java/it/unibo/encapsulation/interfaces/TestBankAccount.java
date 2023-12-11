@@ -46,5 +46,28 @@ public class TestBankAccount {
         /*
          * 12) Qual è il risultato e perché?
          */
+
+        AccountHolder andrea = new AccountHolder("Andrea", "Rossi", 1);
+
+        AccountHolder alex = new AccountHolder("Alex", "Bianchi", 2);
+
+        BankAccount account1 = new SimpleBankAccount(andrea.getUserID(), 0);
+        BankAccount account2 = new StrictBankAccount(alex.getUserID(), 0);
+
+        account1.deposit(andrea.getUserID(), 10000);
+        account2.deposit(alex.getUserID(), 10000);
+
+        account1.withdraw(andrea.getUserID(), 15000);
+        account2.withdraw(alex.getUserID(), 15000);
+
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
+
+        account1.deposit(andrea.getUserID(), 10000);
+        account2.deposit(alex.getUserID(), 10000);
+
+        account1.chargeManagementFees(andrea.getUserID());
+        account2.chargeManagementFees(alex.getUserID());
+
+        System.out.println(account1.getBalance() + " " + account2.getBalance());
     }
 }
