@@ -9,14 +9,14 @@ public class Smartphone {
     private static final int DEF_RAM_SIZE = 8192;
     private static final int DEF_N_CPU = 8;
 
-    public final int cpuCount;
-    public final int ram;
-    public final int sdSize;
-    public final String brand;
-    public final String model;
-    public final boolean hasGPS;
-    public final boolean has3G;
-    public final boolean hasNFC;
+    private final int cpuCount;
+    private final int ram;
+    private final int sdSize;
+    private final String brand;
+    private final String model;
+    private final boolean hasGPS;
+    private final boolean has3G;
+    private final boolean hasNFC;
 
     public Smartphone(
         final int cpuCount,
@@ -53,6 +53,39 @@ public class Smartphone {
     public Smartphone(final String brand, final String model, final boolean hasGPS, final boolean has3G) {
         this(DEF_N_CPU, DEF_RAM_SIZE, DEF_SD_SIZE, brand, model, hasGPS, has3G, DEF_HAS_NFC);
     }
+    
+    public int getCpuCount() {
+        return cpuCount;
+    }
+
+    public int getRam() {
+        return ram;
+    }
+
+    public int getSdSize() {
+        return sdSize;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public boolean isHasGPS() {
+        return hasGPS;
+    }
+
+    public boolean isHas3G() {
+        return has3G;
+    }
+
+    public boolean isHasNFC() {
+        return hasNFC;
+    }
+
 
     public void printStringRep() {
         System.out.println("n CPU(s): " + cpuCount);
