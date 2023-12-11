@@ -34,5 +34,29 @@ class UseConstructors {
         // di default sia consistente (ossia che ci sia un numero positivo di
         // posti totali, e che la somma dei posti in prima e seconda classe dia
         // il totale dei posti sul treno).
+
+        final Student marioRossi = new Student(1014, "Mario", "Rossi", 2013);
+        marioRossi.printStudentInfo();
+
+        final Student luigiGentile = new Student(1015, "Luigi", "Gentile", 2012);
+        luigiGentile.printStudentInfo();
+
+        final Student simoneBianchi = new Student(1016, "Simone", "Bianchi", 2010);
+        simoneBianchi.printStudentInfo();
+
+        final Student andreaBracci = new Student(1017, "Andrea", "Bracci", 2012);
+        andreaBracci.printStudentInfo();
+
+        final Train train1 = new Train(100, 200);
+        train1.printTrainInfo();
+
+        final Train train2 = new Train(50, 1050);
+        train2.printTrainInfo();
+
+        final Train train3 = new Train(0, 500);
+        train3.printTrainInfo();
+
+        final Train train4 = new Train();
+        train4.printTrainInfo();
     }
 }

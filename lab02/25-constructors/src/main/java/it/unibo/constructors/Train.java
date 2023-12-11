@@ -11,6 +11,16 @@ class Train {
     int secondClassSeats;
     int firstClassReserved;
     int secondClassReserved;
+    
+    public Train(int nFCSeats, int nSCSeats) {
+        this.seats = nFCSeats + nSCSeats;
+        this.firstClassSeats = nFCSeats;
+        this.secondClassSeats = nSCSeats;
+    }
+    
+    public Train() {
+        this(DEFAULT_N_FC_SEATS, DEFAULT_N_SC_SEATS);
+    }
 
     void deleteAllReservations() {
         this.firstClassReserved = 0;

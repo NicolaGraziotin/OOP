@@ -18,6 +18,33 @@ class Smartphone {
     boolean has3G;
     boolean hasNFC;
 
+    public Smartphone(int nCPU, int ram, int sdSize, String brand, String model, boolean hasGPS, boolean has3g, boolean hasNFC) {
+        this.nCPU = nCPU;
+        this.ram = ram;
+        this.sdSize = sdSize;
+        this.brand = brand;
+        this.model = model;
+        this.hasGPS = hasGPS;
+        this.has3G = has3g;
+        this.hasNFC = hasNFC;
+    }
+
+    public Smartphone(String brand, String model, boolean hasNFC) {
+        this(DEF_N_CPU, DEF_RAM_SIZE, DEF_SD_SIZE, brand, model, DEF_HAS_GPS, DEF_HAS_3G, hasNFC);
+    }
+
+    public Smartphone(int sdSize, String brand, String model) {
+        this(DEF_N_CPU, DEF_RAM_SIZE, sdSize, brand, model, DEF_HAS_GPS, DEF_HAS_3G, DEF_HAS_NFC);
+    }
+
+    public Smartphone(String brand, String model, boolean hasGPS, boolean has3g) {
+        this(DEF_N_CPU, DEF_RAM_SIZE, DEF_SD_SIZE, brand, model, hasGPS, has3g, DEF_HAS_NFC);
+    }
+
+    public Smartphone(String brand, String model) {
+        this(DEF_N_CPU, DEF_RAM_SIZE, DEF_SD_SIZE, brand, model, DEF_HAS_GPS, DEF_HAS_3G, DEF_HAS_NFC);
+    }
+
     void printStringRep() {
         System.out.println("Smartphone info:");
         System.out.println("n CPU(s): " + this.nCPU);
@@ -42,5 +69,17 @@ class Smartphone {
 
         // 5) Utilizzare il metodo printStringRep per stampare in standard
         // output le informazioni di ciascun telefono
+
+        Smartphone htc = new Smartphone(1024, "HTC", "One");
+        htc.printStringRep();
+
+        Smartphone samsung = new Smartphone(4, 2048, 8192, "Samsung", "Galaxy Note 3", true, true, true);
+        samsung.printStringRep();
+
+        Smartphone apple = new Smartphone("Apple", "iPhone 5S", false);
+        apple.printStringRep();
+
+        Smartphone google = new Smartphone("Google", "Nexus 4", true, true);
+        google.printStringRep();
     }
 }
