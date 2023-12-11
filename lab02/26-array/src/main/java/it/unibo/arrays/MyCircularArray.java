@@ -3,17 +3,31 @@ package it.unibo.arrays;
 class MyCircularArray {
 
     int[] array;
+    int index;
 
     MyCircularArray() {
+        this(10);
     }
 
     MyCircularArray(int size) {
+        this.array = new int[size];
+        this.index = 0;
     }
 
     void add(final int elem) {
+        if (index < array.length) {
+            array[index++] = elem;
+        } else {
+            index = 0;
+            array[index++] = elem;
+        }
     }
 
     void reset() {
+        for (int i = 0; i < this.array.length; i++) {
+            this.array[i] = 0;
+        }
+        this.index = 0;
     }
 
     void printArray() {
@@ -40,5 +54,21 @@ class MyCircularArray {
 
         // 6) Aggiungere altri elementi a piacere e stampare il contenuto
         // dell'array circolare
+
+        MyCircularArray array = new MyCircularArray();
+
+        for (int i = 0; i < 10; i++) {
+            array.add(i+1);
+        }
+        array.printArray();
+
+        for (int i = 10; i < 15; i++) {
+            array.add(i+1);
+        }
+        array.printArray();
+
+        array.reset();
+
+        array.printArray();
     }
 }
