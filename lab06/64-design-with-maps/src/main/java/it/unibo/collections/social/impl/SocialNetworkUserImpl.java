@@ -27,6 +27,7 @@ import java.util.Set;
  */
 public final class SocialNetworkUserImpl<U extends User> extends UserImpl implements SocialNetworkUser<U> {
 
+    private static final int DEFAULT_AGE = -1;
     /*
      *
      * [FIELDS]
@@ -36,6 +37,7 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      * In order to save the people followed by a user organized in groups, adopt
      * a generic-type Map:  think of what type of keys and values would best suit the requirements
      */
+    private final Map<String, Set<U>> followedPeople;
 
     /*
      * [CONSTRUCTORS]
@@ -62,12 +64,16 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      *            application
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
-        super(null, null, null, 0);
+        super(name, surname, user, userAge);
+        this.followedPeople = new HashMap<>();
     }
 
     /*
      * 2) Define a further constructor where the age defaults to -1
      */
+    public SocialNetworkUserImpl(final String name, final String surname, final String user) {
+        this(name, surname, user, DEFAULT_AGE);
+    }
 
     /*
      * [METHODS]
@@ -76,7 +82,8 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
-        return false;
+        this.followedPeople.putIfAbsent(circle, new HashSet<>());
+        return this.followedPeople.get(circle).add(user);
     }
 
     /**
@@ -86,7 +93,7 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     @Override
     public Collection<U> getFollowedUsersInGroup(final String groupName) {
-        return null;
+        return this.followedPeople.containsKey(groupName) ? new ArrayList<>(this.followedPeople.get(groupName)) : Collections.emptyList();
     }
 
     @Override
