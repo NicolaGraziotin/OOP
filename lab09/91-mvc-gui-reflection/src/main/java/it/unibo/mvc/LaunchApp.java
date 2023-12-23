@@ -1,9 +1,9 @@
 package it.unibo.mvc;
 
-import it.unibo.mvc.api.DrawNumberController;
 import it.unibo.mvc.controller.DrawNumberControllerImpl;
 import it.unibo.mvc.model.DrawNumberImpl;
 import it.unibo.mvc.view.DrawNumberSwingView;
+import it.unibo.mvc.view.MultipleViews;
 
 /**
  * Application entry-point.
@@ -25,7 +25,10 @@ public final class LaunchApp {
      */
     public static void main(final String... args) {
         final var model = new DrawNumberImpl();
-        final DrawNumberController app = new DrawNumberControllerImpl(model);
-        app.addView(new DrawNumberSwingView());
+        for (int i = 0; i < 3; i++) {
+            final var program = new DrawNumberControllerImpl(model);
+            program.addView(new DrawNumberSwingView());
+            program.addView(new MultipleViews());
+        }
     }
 }
