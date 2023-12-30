@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 @SuppressWarnings("PMD.SystemPrintln")
-class TestMatrix {
+class TestMatrixSumWithStreams {
 
     /*
      * Si fornisce l'interfaccia SumMatrix, con un metodo per calcolare la
@@ -50,7 +50,7 @@ class TestMatrix {
         System.out.println("BTW: the sum with " + SIZE + "*" + SIZE + " elements is: " + sum);
         long time;
         for (final int threads : new int[] { 1, 2, 3, 8, 16, 32, 100 }) {
-            final SumMatrix sumList = null; // new MultiThreadedSumMatrix(threads);
+            final SumMatrix sumList =  new MultiThreadedMatrixSumWithStreams(threads);
             time = System.nanoTime();
             assertEquals(sum, sumList.sum(matrix), EXPECTED_DELTA);
             time = System.nanoTime() - time;
